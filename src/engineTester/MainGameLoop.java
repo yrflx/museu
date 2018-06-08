@@ -112,7 +112,7 @@ public class MainGameLoop {
 		TexturedModel staticModel = new TexturedModel(model,new ModelTexture(loader.loadTexture("cubo")));
 		
 		
-		Entity entity = new Entity(staticModel, new Vector3f(0, -2,-15),0,0,0,1);
+		Entity entity = new Entity(staticModel, new Vector3f(0, -3,-15),0,0,0,1);
 		
 		Camera camera = new Camera();
 		
