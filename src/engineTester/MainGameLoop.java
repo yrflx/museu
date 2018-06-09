@@ -110,12 +110,55 @@ public class MainGameLoop {
 		Entity entity11 = new Entity(quadro7, new Vector3f(quartaParede,alturaQuadros,direitaParede),0,0,0,1);
 		entity11.increaseRotation(0,-180, 0);										
 				
+	
+		//DADOS SOBRE OS QUADROS
 		
-			
+		//DADO 0
+		TexturedModel dado0 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
+		Entity entity12 = new Entity(dado0, new Vector3f(-58,alturaQuadros, 6),0,0,0,1);
+		entity12.increaseRotation(0,90, 0);
+				
+		//DADO 1
+		TexturedModel dado1 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
+		Entity entity13 = new Entity(dado1, new Vector3f(40,alturaQuadros,-64),0,0,0,1);
+		entity13.increaseRotation(0,-90, 0);
+		
+		//DADO 2
+		TexturedModel dado2 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
+		Entity entity14 = new Entity(dado2, new Vector3f(-38,alturaQuadros, 6),0,0,0,1);
+		entity14.increaseRotation(0,90, 0);
+						
+		//DADO 3
+		TexturedModel dado3 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
+		Entity entity15 = new Entity(dado3, new Vector3f(60,alturaQuadros,-64),0,0,0,1);
+		entity15.increaseRotation(0,-90, 0);
+		
+		
+		//DADO 4
+		TexturedModel dado4 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
+		Entity entity16 = new Entity(dado4, new Vector3f(-18,alturaQuadros, 6),0,0,0,1);
+		entity16.increaseRotation(0,90, 0);
+						
+		//DADO 5
+		TexturedModel dado5 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
+		Entity entity17 = new Entity(dado5, new Vector3f(80,alturaQuadros,-64),0,0,0,1);
+		entity17.increaseRotation(0,-90, 0);
+		
+		//DADO 6
+		TexturedModel dado6 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
+		Entity entity18 = new Entity(dado6, new Vector3f(2,alturaQuadros, 6),0,0,0,1);
+		entity18.increaseRotation(0,90, 0);
+								
+		//DADO 7
+		TexturedModel dado7 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
+		Entity entity19 = new Entity(dado7, new Vector3f(100,alturaQuadros,-64),0,0,0,1);
+		entity19.increaseRotation(0,-90, 0);
+				
+				
 		//construindo a camera;
 		Camera camera = new Camera();
 		
-		
+	
 		while(!Display.isCloseRequested()){
 			entity.increaseRotation(0,0, 0);
 			camera.move();
@@ -127,7 +170,10 @@ public class MainGameLoop {
 			renderer.render(entity2,shader);
 			renderer.render(entity3,shader);
 			
+			
+			
 			/*quadros*/
+			
 			renderer.render(entity4,shader);
 			renderer.render(entity5, shader);
 			renderer.render(entity6, shader);
@@ -135,9 +181,18 @@ public class MainGameLoop {
 			renderer.render(entity8, shader);
 			renderer.render(entity9, shader);
 			renderer.render(entity10, shader);
-			renderer.render(entity11, shader);
+			renderer.render(entity11, shader); 
+			renderer.render(entity12, shader);
+			renderer.render(entity13, shader);
+			 
+			renderer.render(entity14, shader);
+			renderer.render(entity15, shader);
 			
+			renderer.render(entity16, shader);
+			renderer.render(entity17, shader);
 			
+			renderer.render(entity18, shader);
+			renderer.render(entity19, shader);			
 			
 			/*/quadros*/
 			
