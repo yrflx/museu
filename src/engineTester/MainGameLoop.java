@@ -106,23 +106,54 @@ public class MainGameLoop {
 		//RawModel model = loader.loadToVAO(vertices,textureCoords,indices);
 		
 		  
-		//COLOCANDO O LOADER
-		RawModel model = OBJloader.loadObjModel("cubo", loader);
+		//COLOCANDO O chao
+		RawModel model = OBJloader.loadObjModel("chao", loader);
+				
+		TexturedModel staticModel = new TexturedModel(model,new ModelTexture(loader.loadTexture("textura")));	
+				
+		Entity entity = new Entity(staticModel, new Vector3f(0,-4,-55),0,0,0,1);
+		  
 		
-		TexturedModel staticModel = new TexturedModel(model,new ModelTexture(loader.loadTexture("cubo")));
+		//COLOCANDO a parede
+		RawModel model2 = OBJloader.loadObjModel("par", loader);
+				
+		TexturedModel staticModel2 = new TexturedModel(model2,new ModelTexture(loader.loadTexture("parede")));	
+				
+		Entity entity2 = new Entity(staticModel2, new Vector3f(0,-4,-55),0,0,0,1);
 		
 		
-		Entity entity = new Entity(staticModel, new Vector3f(0, -3,-15),0,0,0,1);
+		//COLOCANDO O teto
+		RawModel model3 = OBJloader.loadObjModel("chao", loader);
+					
+		TexturedModel staticModel3 = new TexturedModel(model3,new ModelTexture(loader.loadTexture("textura")));	
+						
+		Entity entity3 = new Entity(staticModel3, new Vector3f(0,7,-55),0,0,0,1);
+		
+		
+		//COLOCANDO A MONALISA
+		RawModel model4 = OBJloader.loadObjModel("monalisa", loader);
+		
+		TexturedModel staticModel4 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("monalisa")));	
+		
+		Entity entity4 = new Entity(staticModel4, new Vector3f(42,-4,-63),0,0,0,1);
+	
+		entity4.increaseRotation(0,-90, 0);
+	
 		
 		Camera camera = new Camera();
 		
 		while(!Display.isCloseRequested()){
-			entity.increaseRotation(0, 1, 0);
+			entity.increaseRotation(0,0, 0);
 			camera.move();
 			renderer.prepare();
 			shader.start();
 			shader.loadViewMatrix(camera);
+			
 			renderer.render(entity,shader);
+			renderer.render(entity2,shader);
+			renderer.render(entity3,shader);
+			renderer.render(entity4,shader);
+			
 			shader.stop();
 			DisplayManager.updateDisplay();
 		}
