@@ -14,7 +14,7 @@ public class Camera {
 	private float currentTurnSpeed = 0;	
 	private float angleAroundPlayer = 0;
 	
-	private Vector3f position = new Vector3f(0,0,0);
+	private Vector3f position = new Vector3f(-35,0,-55);
 	private float pitch;
 	private float yaw;
 	private float roll;
@@ -28,29 +28,71 @@ public class Camera {
 		//float verticalDistance = calculateVerticalDistance();
 		//calculateCameraPosition(horizontalDistance, verticalDistance);
 		
-		//calcula o angulo da c‚mera em relaÁ„o ao ch„o e a rotaÁ„o na horizontal;
+		//calcula o angulo da c√¢mera em rela√ß√£o ao ch√£o e a rota√ß√£o na horizontal;
 		calculatePitch();
 		calculateAngleAroundPlayer();
 		this.yaw = 180 - angleAroundPlayer;
 		
-		//movimentaÁ„o pelo teclado;
+		//movimenta√ß√£o pelo teclado;
 		checkInputs();
 		
 		
 		if(Keyboard.isKeyDown(Keyboard.KEY_W)){
-			position.z -= 0.05f;
-		}
-		if(Keyboard.isKeyDown(Keyboard.KEY_D)){
-			position.x+=0.05f;
+			if((checkCollision(position.x,position.z))==1){
+				position.x-= 1.0f;
+			}
+			else {
+			position.x+= 0.05f;
+			}
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_A)){
-			position.x-=0.05f;
+			if((checkCollision(position.x,position.z))==1){
+				position.z+= 1.0f;
+			}else {
+			position.z-= 0.05f;
+			}
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_S)){
+			if((checkCollision(position.x,position.z))==1){
+				position.x+= 1.0f;
+			}
+			else {
+			position.x-= 0.05f;
+			}
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_D)){
+			if((checkCollision(position.x,position.z))==1){
+				position.z-=1.0f;
+			}
+			else {
 			position.z+=0.05f;
+			}
 		}
 		
-		
+		if(Keyboard.isKeyDown(Keyboard.KEY_P)){    // feedback da posi√ß√£o da camera
+			System.out.println("x: "+position.x);
+			System.out.println("y: "+position.y);
+			System.out.println("z: "+position.z);
+			
+		}
+	}
+	
+	public int checkCollision(float x2, float z2) {     // checa as colis√µes
+		float x = x2;
+		float z = z2;
+		if((z<-56) || (z>0) || (z>-48 && x<-19) || (x>59) || (x<-39)){  // checa colis√µes das parede maiores da sala
+			return 1;
+		}
+		if(x>-0.6 && x<1.7 && (z>-23 || z<-34)) {    // parede que separa os quadros
+			return 1; 
+		}
+		if(x>19.5 && x<21.5 && (z>-23 || z<-34)) {  // parede que separa os quadros
+			return 1;
+		}
+		if(x>39.5 && x<41.5 && (z>-23 || z<-34)) {  // parede que separa os quadros
+			return 1;
+		}
+		return 0;
 	}
 	
 	public Vector3f getPosition() {
@@ -90,15 +132,15 @@ public class Camera {
 	
 	
 	/**
-	 * aplica zoom na tela; (no caso do nosso projeto nao ser· utilizado);
+	 * aplica zoom na tela; (no caso do nosso projeto nao ser√° utilizado);
 	 */
 	private void calculateZoom() {
 		float zoomLevel = Mouse.getDWheel() * 0.1f;
 	}
 	
 	/**
-	 * Calcula o angulo que a camera est· em relaÁ„o do solo,
-	 * permitindo mover a camera para cima e para baixo com o click Direito + movimentaÁ„o do mouse;
+	 * Calcula o angulo que a camera est√° em rela√ß√£o do solo,
+	 * permitindo mover a camera para cima e para baixo com o click Direito + movimenta√ß√£o do mouse;
 	 */
 	private void calculatePitch() {
 		if(Mouse.isButtonDown(1)) {
@@ -109,7 +151,7 @@ public class Camera {
 	
 	/**
 	 * Calcula o Angulo na horizontal,
-	 * permitindo girar a c‚mera para direita e esquerda com o click+movimentaÁ„o do mouse;
+	 * permitindo girar a c√¢mera para direita e esquerda com o click+movimenta√ß√£o do mouse;
 	 */
 	private void calculateAngleAroundPlayer() {
 		if(Mouse.isButtonDown(0)) {
