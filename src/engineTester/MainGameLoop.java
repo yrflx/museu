@@ -62,11 +62,8 @@ public class MainGameLoop {
 		int direitaParede = 38;
 		
 		
-		/* QUADROS */
-		
+		/*** QUADROS ***/
 		RawModel model4 = OBJloader.loadObjModel("quadro", loader);
-		
-		
 		
 		
 		//QUADRO 0
@@ -114,45 +111,45 @@ public class MainGameLoop {
 		//DADOS SOBRE OS QUADROS
 		
 		//DADO 0
-		TexturedModel dado0 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
-		Entity entity12 = new Entity(dado0, new Vector3f(-58,alturaQuadros, 6),0,0,0,1);
-		entity12.increaseRotation(0,90, 0);
-				
-		//DADO 1
-		TexturedModel dado1 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
-		Entity entity13 = new Entity(dado1, new Vector3f(40,alturaQuadros,-64),0,0,0,1);
+		TexturedModel dado0 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados0")));	
+		Entity entity13 = new Entity(dado0, new Vector3f(40,alturaQuadros,-64),0,0,0,1);
 		entity13.increaseRotation(0,-90, 0);
 		
-		//DADO 2
-		TexturedModel dado2 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
-		Entity entity14 = new Entity(dado2, new Vector3f(-38,alturaQuadros, 6),0,0,0,1);
-		entity14.increaseRotation(0,90, 0);
+		//DADO 1
+		TexturedModel dado1 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados1")));	
+		Entity entity12 = new Entity(dado1, new Vector3f(-58,alturaQuadros, 6),0,0,0,1);
+		entity12.increaseRotation(0,90, 0);
 						
-		//DADO 3
-		TexturedModel dado3 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
-		Entity entity15 = new Entity(dado3, new Vector3f(60,alturaQuadros,-64),0,0,0,1);
+		//DADO 2
+		TexturedModel dado2 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados2")));	
+		Entity entity15 = new Entity(dado2, new Vector3f(60,alturaQuadros,-64),0,0,0,1);
 		entity15.increaseRotation(0,-90, 0);
 		
+		//DADO 3
+		TexturedModel dado3 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados3")));	
+		Entity entity14 = new Entity(dado3, new Vector3f(-38,alturaQuadros, 6),0,0,0,1);
+		entity14.increaseRotation(0,90, 0);
 		
 		//DADO 4
-		TexturedModel dado4 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
-		Entity entity16 = new Entity(dado4, new Vector3f(-18,alturaQuadros, 6),0,0,0,1);
-		entity16.increaseRotation(0,90, 0);
-						
-		//DADO 5
-		TexturedModel dado5 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
-		Entity entity17 = new Entity(dado5, new Vector3f(80,alturaQuadros,-64),0,0,0,1);
+		TexturedModel dado4 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados4")));	
+		Entity entity17 = new Entity(dado4, new Vector3f(80,alturaQuadros,-64),0,0,0,1);
 		entity17.increaseRotation(0,-90, 0);
 		
+		//DADO 5
+		TexturedModel dado5 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados5")));	
+		Entity entity16 = new Entity(dado5, new Vector3f(-18,alturaQuadros, 6),0,0,0,1);
+		entity16.increaseRotation(0,90, 0);
+		
 		//DADO 6
-		TexturedModel dado6 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
-		Entity entity18 = new Entity(dado6, new Vector3f(2,alturaQuadros, 6),0,0,0,1);
-		entity18.increaseRotation(0,90, 0);
-								
+		TexturedModel dado6 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados6")));	
+		Entity entity19 = new Entity(dado6, new Vector3f(100,alturaQuadros,-64),0,0,0,1);
+		entity19.increaseRotation(0,-90, 0);
+		
 		//DADO 7
 		TexturedModel dado7 = new TexturedModel(model4,new ModelTexture(loader.loadTexture("dados")));	
-		Entity entity19 = new Entity(dado7, new Vector3f(100,alturaQuadros,-64),0,0,0,1);
-		entity19.increaseRotation(0,-90, 0);
+		Entity entity18 = new Entity(dado7, new Vector3f(2,alturaQuadros, 6),0,0,0,1);
+		entity18.increaseRotation(0,90, 0);
+							
 				
 				
 		//construindo a camera;
